@@ -18,7 +18,7 @@ class TodoComponent extends Component{
     onSubmit(values){
         let username = AuthenticationService.getLoggedInUser();
         // console.log(username)
-        if(this.state.id==-1){
+        if(this.state.id===-1){
             TodoDataService.createTodo(username,
                 {
                     id: this.state.id,
