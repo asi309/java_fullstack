@@ -1,4 +1,4 @@
-package com.asidipta.rest.webservices.restfulwebservices.basic.auth;
+package com.asidipta.rest.webservices.basic.auth;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

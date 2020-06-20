@@ -10,13 +10,31 @@ class AuthenticationService{
         )
     }
 
+    JWTAuthService(username, password){
+        return axios.post("http://localhost:8080/authenticate",
+            {
+                username,
+                password
+            }
+        )
+    }
+
     createBasicAuthHeader(username, password){
         return("Basic " + window.btoa(username + ":" + password));
+    }
+
+    createJWTToken(token){
+        return "Bearer "+ token;
     }
 
     registerSuccessfulLogin(username,password){
         sessionStorage.setItem('authenticatedUser', username);
         this.setupAxiosInterceptor(this.createBasicAuthHeader(username, password));
+    }
+
+    registerSuccessfulLogin4JWT(username, token){
+        sessionStorage.setItem('authenticatedUser', username);
+        this.setupAxiosInterceptor(this.createJWTToken(token));
     }
 
     logout(){

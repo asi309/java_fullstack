@@ -1,4 +1,4 @@
-package com.asidipta.rest.webservices.restfulwebservices.basic.auth;
+package com.asidipta.rest.webservices.basic.auth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

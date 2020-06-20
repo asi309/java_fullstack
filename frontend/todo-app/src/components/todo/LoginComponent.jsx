@@ -31,18 +31,30 @@ class LoginComponent extends Component{
         //     this.setState({loginError: true});
         //     console.log("Failed");
         // }
-        AuthenticationService.basicAuthService(this.state.username, this.state.password)
+        // AuthenticationService.basicAuthService(this.state.username, this.state.password)
+        // .then(
+        //     () => {
+        //         this.props.history.push(`/welcome/${this.state.username}`);
+        //         AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password);
+        //     })
+        // .catch(
+        //     () => {
+        //         this.setState({loginSuccess: false});
+        //         this.setState({loginError: true});
+        //     })
+        //console.log(this.state);
+
+        AuthenticationService.JWTAuthService(this.state.username, this.state.password)
         .then(
-            () => {
+            (response) => {
                 this.props.history.push(`/welcome/${this.state.username}`);
-                AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password);
+                AuthenticationService.registerSuccessfulLogin4JWT(this.state.username, response.data.token);
             })
         .catch(
             () => {
                 this.setState({loginSuccess: false});
                 this.setState({loginError: true});
             })
-        //console.log(this.state);
     }
     render(){
         return(
